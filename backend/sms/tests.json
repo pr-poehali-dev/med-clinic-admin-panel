@@ -1,0 +1,21 @@
+{
+  "tests": [
+    {
+      "name": "Проверка статуса шлюза SMS.ru",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"provider": "sms.ru"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Отправка без телефона возвращает ошибку",
+      "method": "POST",
+      "path": "/",
+      "body": {"text": "Напоминание"},
+      "expectedStatus": 400,
+      "expectedBody": {"error": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

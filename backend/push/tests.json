@@ -1,0 +1,21 @@
+{
+  "tests": [
+    {
+      "name": "Получение публичного VAPID-ключа",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"publicKey": "string"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Подписка без данных возвращает ошибку",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "subscribe"},
+      "expectedStatus": 400,
+      "expectedBody": {"error": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
